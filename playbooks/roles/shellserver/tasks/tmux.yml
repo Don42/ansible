@@ -1,0 +1,7 @@
+  - name: Install tmux binary
+    apt: name=tmux state=present
+    sudo: yes
+  - name: Install tmux.conf
+    copy: src=tmux/tmux.conf dest=/home/{{ user }}/.tmux.conf mode=664
+        owner={{ user }} group={{ user }}
+    sudo: yes

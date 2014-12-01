@@ -1,0 +1,4 @@
+---
+- include: zsh-bin.yml
+- include: zsh-conf.yml
+- include: zsh-chsh.yml

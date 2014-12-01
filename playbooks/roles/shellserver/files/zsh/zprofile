@@ -1,0 +1,7 @@
+# Start or reattach a tmux session when a ssh connection is established
+if [ -z "$TMUX" ] && [ $TERM != "screen" ]; then
+    tmux attach-session -t base || tmux new -s base
+    [ $? -eq 0 ] && exit
+    echo "WARNING: tmux exited with an error!" >&2
+fi
+

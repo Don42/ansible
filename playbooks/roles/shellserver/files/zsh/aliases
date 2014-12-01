@@ -1,0 +1,24 @@
+# essential use of ls
+alias la='ls -hla --color=auto'
+alias l='ls -hlF --color=auto'
+
+# More comfortable aliases
+alias g='git'
+alias gst='g status'
+alias glog='g log --graph --stat --oneline'
+alias gd='g diff'
+alias gc='g commit'
+
+alias vi='vim'
+alias svim='sudo -e'
+
+alias ..='cd ..'
+alias ...='cd ../..'
+
+# Nicer output of grep
+alias grep='grep --color=auto --initial-tab'
+
+# Required to pipe colors to less
+alias less='less -R'
+
+alias alert='echo -e "\a"'

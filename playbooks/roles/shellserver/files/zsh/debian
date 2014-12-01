@@ -1,0 +1,30 @@
+# Alias for a comfortable dist-upgrade
+alias agu='sudo apt-get update'
+alias agd='sudo sh -c "apt-get update && apt-get upgrade && apt-get dist-upgrade && apt-get autoremove && apt-get autoclean"'
+alias agc='apt-get changelog'
+
+alias acs='apt-cache show'
+alias acd='apt-cache depends'
+alias acr='apt-cache rdepends'
+
+# Rehash after installing a package
+agi () {
+    [[ ! -z "$@" ]] && sudo apt-get install "$@" && rehash
+}
+
+# Rehash after removing a package
+agr () {
+    [[ ! -z "$@" ]] && sudo apt-get purge "$@" && sudo apt-get autoremove && rehash
+}
+
+# Define "lists" for completions
+_notyet() {
+    _deb_packages uninstalled
+}
+
+_yetnot() {
+    _deb_packages installed
+}
+
+compdef _notyet agi
+compdef _yetnot agr

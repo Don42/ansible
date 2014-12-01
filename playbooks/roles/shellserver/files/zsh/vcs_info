@@ -1,0 +1,13 @@
+# Enable vcs_info
+setopt PROMPT_SUBST
+autoload -Uz vcs_info
+
+# Specify the vcs
+zstyle ':vcs_info:*' enable git svn cvs hg
+
+# Specify how it should be formatted
+zstyle ':vcs_info:*' formats " %F{cyan}%s:%b%f"
+
+precmd() {
+    vcs_info
+}

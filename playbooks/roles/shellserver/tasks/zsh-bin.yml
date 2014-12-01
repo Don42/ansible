@@ -1,0 +1,6 @@
+- name: Ensure zsh is at the latest version
+  apt: name=zsh state=latest
+  sudo: yes
+- name: Ensure ncurses-term is installed; This is needed for zsh+putty
+  apt: name=ncurses-term state=present
+  sudo: yes

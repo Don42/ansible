@@ -1,0 +1,87 @@
+" Should be given by the machine vim is installed on
+runtime! debian.vim
+
+colorscheme desert
+filetype plugin indent on
+
+" Enable colors for syntax and use dark background
+syntax on
+set bg=dark
+
+" Set encoding to utf-8
+set fileencoding=utf-8 encoding=utf-8
+
+" Security
+set nomodeline
+set modelines=0
+
+" Fast paste mode toggling
+set pastetoggle=<F12>
+
+" Don’t ensure compatibility with vi at all cost
+set nocompatible
+
+" Set the titel for the terminal
+set title
+" For fast terminal connection
+set ttyfast
+
+" Display the cursorline and disable visual bell
+set cursorline
+set novisualbell
+set noerrorbells
+" Show matching brackets
+set showmatch
+
+" For searching
+set ignorecase
+set incsearch
+set hlsearch
+
+" Defines tab and shift width
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+
+" Handle long lines correctly and smart
+set wrap
+set autoindent smartindent
+set colorcolumn=80
+
+" Always show the statusline
+set laststatus=2
+
+" Enhanced mode for command-line completion
+set wildmenu
+
+" Enable listing possible completions when completing file names
+set wildmode=longest,list:longest,list:full
+
+set showcmd
+
+" More flexible backspace
+set backspace=indent,eol,start
+
+" Needs http://www.vim.org/scripts/script.php?script_id=2258 to work
+function! CurDir()
+   let curdir = substitute(getcwd(), '$HOME', "~/", "g")
+   return curdir
+endfunction
+
+" Highlight todo and so on
+function! TODO()
+        :vimgrep /@todo\|FIXME/ **/*
+        :cwindow
+endfunction
+
+" Automatically remove trailing whitespace
+autocmd! BufWrite * mark ' | silent! %s/\s\+$// | norm ''
+
+" When .vimrc is edited, automatically reload it
+autocmd! bufwritepost .vimrc source ~/.vimrc
+
+autocmd VimEnter * set vb t_vb=
+
+" Format the statusline
+set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%{CurDir()}%h\ \ \ Line:\ %l/%L:%c\ %{GitBranchInfoString()}

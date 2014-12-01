@@ -1,0 +1,30 @@
+# Long date format in ls(1)
+export TIME_STYLE=long-iso
+
+# NO BEEPING!
+setopt NO_BEEP
+
+# Don't send HUP signal to background jobs when exiting zsh
+setopt NO_HUP
+
+# List jobs in the long format
+setopt LONG_LIST_JOBS
+
+# An array (colon-separated list) of login/logout events to report.
+watch=(notme, root)
+
+# Don't display an error if there are no matches, I know what I am doing
+setopt NO_NOMATCH
+
+# Disable Flow Control
+unsetopt FLOW_CONTROL
+
+# Prevent from accidentally overwriting an existing file
+setopt NOCLOBBER
+
+# Increasing the comfort for forward-word and backward-word
+export WORDCHARS='.,*?_-[]~=&;!#$%^(){}<>'
+
+# Just don't nag me when system messages appear
+unset MAILCHECK
+unsetopt MAIL_WARNING

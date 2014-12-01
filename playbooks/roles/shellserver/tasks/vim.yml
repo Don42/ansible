@@ -1,0 +1,11 @@
+  - name: Install vim binary
+    apt: name=vim state=present
+    sudo: yes
+  - name: Install vim config
+    copy: src=vim dest=/home/{{ user }}/.vim/ mode=664
+      owner={{ user }} group={{ user }}
+    sudo: yes
+  - name: Symlink .vimrc
+    file: src=/home/{{ user }}/.vim/vim dest=/home/{{ user }}/.vimrc state=link
+        owner={{ user }} group={{ user }}
+    sudo: yes

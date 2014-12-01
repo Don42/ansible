@@ -1,0 +1,5 @@
+---
+- name: Install shell environment
+  hosts: shellservers
+  roles:
+    - shellserver
