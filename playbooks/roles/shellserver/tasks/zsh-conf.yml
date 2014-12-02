@@ -3,7 +3,7 @@
       owner={{ user}} group={{ user }}
     sudo: yes
   - name: Symlink zsh config
-    file: src=/home/{{ user }}/.zsh/{{ item.file }} dest=/home/{{ user }}/{{ item.file }}
+    file: src=/home/{{ user }}/.zsh/{{ item.file }} dest=/home/{{ user }}/.{{ item.file }}
         state=link owner={{ user }} group={{ user }}
     with_items:
         - file: zshrc
