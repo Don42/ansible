@@ -1,0 +1,2 @@
+  - name: Set shell for user
+    user: name={{ user }} shell=/usr/bin/zsh

@@ -1,0 +1,10 @@
+  - name: Copy files to ~/.zsh
+    copy: src=zsh/ dest=/home/{{ user }}/.zsh/ mode=664
+      owner={{ user}} group={{ user }}
+  - name: Symlink zsh config
+    file: src=/home/{{ user }}/.zsh/{{ item.file }} dest=/home/{{ user }}/.{{ item.file }}
+        state=link owner={{ user }} group={{ user }}
+    with_items:
+        - file: zshrc
+        - file: zprofile
+        - file: zshenv

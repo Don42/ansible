@@ -1,0 +1,3 @@
+  - name: Install tmux.conf
+    copy: src=tmux/tmux.conf dest=/home/{{ user }}/.tmux.conf mode=664
+        owner={{ user }} group={{ user }}

@@ -1,0 +1,6 @@
+  - name: Install vim config
+    copy: src=vim/ dest=/home/{{ user }}/.vim/ mode=664
+      owner={{ user }} group={{ user }}
+  - name: Symlink .vimrc
+    file: src=/home/{{ user }}/.vim/vimrc dest=/home/{{ user }}/.vimrc state=link
+        owner={{ user }} group={{ user }}

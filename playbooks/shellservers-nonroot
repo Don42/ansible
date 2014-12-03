@@ -1,0 +1,5 @@
+---
+- name: Install shell config
+  hosts: shellservers-nonroot
+  roles:
+      - shellserver-nonroot
