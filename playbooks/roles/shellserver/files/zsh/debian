@@ -3,7 +3,7 @@ alias agu='sudo apt-get update'
 alias agd='sudo sh -c "apt-get update && apt-get upgrade && apt-get dist-upgrade && apt-get autoremove && apt-get autoclean"'
 alias agc='apt-get changelog'
 
-alias acs='apt-cache show'
+alias acs='apt-cache search'
 alias acd='apt-cache depends'
 alias acr='apt-cache rdepends'
 
