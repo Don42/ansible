@@ -1,0 +1,6 @@
+- name: Install tools
+  apt: "pkg={{ item }} state=installed"
+  with_items:
+    - tree
+    - moreutils
+  sudo: yes
