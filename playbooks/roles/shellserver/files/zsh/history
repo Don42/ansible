@@ -3,6 +3,9 @@ HISTSIZE=4096
 SAVEHIST=4096
 HISTFILE=~/.zsh_history
 
+# Share history between processes                                               
+setopt SHARE_HISTORY
+
 # Append to $HISTFILE incrementally (does not wait for the shell to exit)
 setopt INC_APPEND_HISTORY
 
